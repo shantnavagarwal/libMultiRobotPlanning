@@ -3,8 +3,7 @@ cmake_minimum_required(VERSION 3.5)
 project(libMultiRobotPlanning)
 
 find_package(Boost 1.58 REQUIRED COMPONENTS program_options)
-find_package(PkgConfig)
-pkg_check_modules(YamlCpp yaml-cpp)
+find_package(yaml-cpp REQUIRED)
 
 # check if Doxygen is installed
 find_package(Doxygen)
@@ -118,7 +117,7 @@ add_executable(cbs_roadmap
 )
 target_link_libraries(cbs_roadmap
   ${Boost_LIBRARIES}
-  yaml-cpp
+  {YAML_CPP_LIBRARIES}
 )
 
 ## cbs
@@ -127,7 +126,7 @@ add_executable(cbs
 )
 target_link_libraries(cbs
   ${Boost_LIBRARIES}
-  yaml-cpp
+  {YAML_CPP_LIBRARIES}
 )
 
 ## cbs_ta
@@ -136,7 +135,7 @@ add_executable(cbs_ta
 )
 target_link_libraries(cbs_ta
   ${Boost_LIBRARIES}
-  yaml-cpp
+  {YAML_CPP_LIBRARIES}
 )
 
 ## ecbs
@@ -145,7 +144,7 @@ add_executable(ecbs
 )
 target_link_libraries(ecbs
   ${Boost_LIBRARIES}
-  yaml-cpp
+  {YAML_CPP_LIBRARIES}
 )
 
 ## ecbs_ta
@@ -154,7 +153,7 @@ add_executable(ecbs_ta
 )
 target_link_libraries(ecbs_ta
   ${Boost_LIBRARIES}
-  yaml-cpp
+  {YAML_CPP_LIBRARIES}
 )
 
 ## next_best_assignment
@@ -163,7 +162,7 @@ add_executable(next_best_assignment
 )
 target_link_libraries(next_best_assignment
   ${Boost_LIBRARIES}
-  yaml-cpp
+  {YAML_CPP_LIBRARIES}
 )
 
 ## sipp
@@ -172,7 +171,7 @@ add_executable(sipp
 )
 target_link_libraries(sipp
   ${Boost_LIBRARIES}
-  yaml-cpp
+  {YAML_CPP_LIBRARIES}
 )
 
 ## mapf_prioritized_sipp
@@ -181,5 +180,5 @@ add_executable(mapf_prioritized_sipp
 )
 target_link_libraries(mapf_prioritized_sipp
   ${Boost_LIBRARIES}
-  yaml-cpp
+  {YAML_CPP_LIBRARIES}
 )
